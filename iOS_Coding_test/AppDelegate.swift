@@ -25,12 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ページを格納する配列
         var viewControllers: [UIViewController] = []
         
+        let topicIcon: UIImage = UIImage(named:"topic_icon")!
+        let starIcon: UIImage = UIImage(named:"star_icon")!
+        
         let firstVC = FirstViewController()
-        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        firstVC.tabBarItem = UITabBarItem(title: "トピック一覧", image: topicIcon, tag: 1)
         viewControllers.append(firstVC)
 
         let secondVC = SecondViewController()
-        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
+        secondVC.tabBarItem = UITabBarItem(title: "フォロー済み", image: starIcon, tag: 2)
+        
         viewControllers.append(secondVC)
 
         // ViewControllerをセット
