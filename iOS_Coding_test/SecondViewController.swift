@@ -1,19 +1,20 @@
 //
-//  ViewController.swift
+//  SecondViewController.swift
 //  iOS_Coding_test
 //
 //  Created by nakagawa on 2018/07/12.
 //  Copyright © 2018年 nakagawa. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.backgroundColor = .white
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,4 +24,3 @@ class ViewController: UIViewController {
 
 
 }
-

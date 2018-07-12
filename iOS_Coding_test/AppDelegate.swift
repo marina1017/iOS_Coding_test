@@ -17,9 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let initialViewController = ViewController()
-        let navigationController = UINavigationController(rootViewController: initialViewController)
+        self.window?.backgroundColor = .white
+
+        // ページを格納する配列
+        var viewControllers: [UIViewController] = []
+        
+        let firstVC = FirstViewController()
+        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        viewControllers.append(firstVC)
+
+        let secondVC = SecondViewController()
+        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
+        viewControllers.append(secondVC)
+
+        // ViewControllerをセット
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers(viewControllers, animated: false)
+
+        let navigationController = UINavigationController(rootViewController: tabBarController)
 
         self.window?.rootViewController = navigationController
 
