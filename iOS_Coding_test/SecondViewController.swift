@@ -15,6 +15,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationItem.title = "フォロー済み"
     }
 
     override func didReceiveMemoryWarning() {

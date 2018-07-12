@@ -16,6 +16,8 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationItem.title = "トピック一覧"
+        
         
         self.tableView = UITableView()
         self.tableView.frame = self.view.frame
@@ -23,13 +25,17 @@ class FirstViewController: UIViewController {
         self.tableView.dataSource = self
         
         // セルをテーブルに紐付ける
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(TopicListCell.self, forCellReuseIdentifier: NSStringFromClass(TopicListCell.self))
         
         //テーブルビューを触れないように
         tableView.allowsSelection = false
         
         // テーブルを表示
         view.addSubview(tableView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super .viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +65,7 @@ extension FirstViewController: UITableViewDataSource {
     
     // セル生成
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TopicListCell.self), for: indexPath)
         
         
         return cell

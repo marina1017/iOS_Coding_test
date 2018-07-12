@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C4C04E220F7A31B005CE398 /* TopicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C04E120F7A31B005CE398 /* TopicListCell.swift */; };
 		C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51220F769BB0015E998 /* AppDelegate.swift */; };
 		C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51420F769BB0015E998 /* FirstViewController.swift */; };
 		C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C069E52520F76C300015E998 /* SnapKit.framework */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C4C04E120F7A31B005CE398 /* TopicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListCell.swift; sourceTree = "<group>"; };
 		C069E50F20F769BB0015E998 /* iOS_Coding_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Coding_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069E51220F769BB0015E998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069E51420F769BB0015E998 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				C069E51220F769BB0015E998 /* AppDelegate.swift */,
 				C069E51420F769BB0015E998 /* FirstViewController.swift */,
 				C069E52C20F772C60015E998 /* SecondViewController.swift */,
+				9C4C04E120F7A31B005CE398 /* TopicListCell.swift */,
 				C069E51E20F769BD0015E998 /* Info.plist */,
 				C069E52820F770660015E998 /* Images.xcassets */,
 			);
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */,
+				9C4C04E220F7A31B005CE398 /* TopicListCell.swift in Sources */,
 				C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */,
 				C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */,
 			);

@@ -23,27 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = .white
 
         // ページを格納する配列
-        var viewControllers: [UIViewController] = []
+        var viewControllers: [UINavigationController] = []
         
         let topicIcon: UIImage = UIImage(named:"topic_icon")!
         let starIcon: UIImage = UIImage(named:"star_icon")!
         
         let firstVC = FirstViewController()
         firstVC.tabBarItem = UITabBarItem(title: "トピック一覧", image: topicIcon, tag: 1)
-        viewControllers.append(firstVC)
+        viewControllers.append(UINavigationController(rootViewController: firstVC))
 
         let secondVC = SecondViewController()
         secondVC.tabBarItem = UITabBarItem(title: "フォロー済み", image: starIcon, tag: 2)
         
-        viewControllers.append(secondVC)
+        viewControllers.append(UINavigationController(rootViewController: secondVC))
 
         // ViewControllerをセット
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers(viewControllers, animated: false)
 
-        let navigationController = UINavigationController(rootViewController: tabBarController)
-
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = tabBarController
 
         //現在のウィンドウを表示し、それを同じレベルまたはそれ以下の他のすべてのウィンドウの前に置く便利な関数。
         self.window?.makeKeyAndVisible()
