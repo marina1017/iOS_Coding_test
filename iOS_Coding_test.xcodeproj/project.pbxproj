@@ -9,21 +9,17 @@
 /* Begin PBXBuildFile section */
 		C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51220F769BB0015E998 /* AppDelegate.swift */; };
 		C069E51520F769BB0015E998 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51420F769BB0015E998 /* ViewController.swift */; };
-		C069E51820F769BB0015E998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C069E51620F769BB0015E998 /* Main.storyboard */; };
-		C069E51A20F769BD0015E998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C069E51920F769BD0015E998 /* Assets.xcassets */; };
-		C069E51D20F769BD0015E998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C069E51B20F769BD0015E998 /* LaunchScreen.storyboard */; };
 		C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C069E52520F76C300015E998 /* SnapKit.framework */; };
+		C069E52920F770660015E998 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C069E52820F770660015E998 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C069E50F20F769BB0015E998 /* iOS_Coding_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Coding_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069E51220F769BB0015E998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069E51420F769BB0015E998 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C069E51720F769BB0015E998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C069E51920F769BD0015E998 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C069E51C20F769BD0015E998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C069E51E20F769BD0015E998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C069E52520F76C300015E998 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		C069E52820F770660015E998 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +56,8 @@
 			children = (
 				C069E51220F769BB0015E998 /* AppDelegate.swift */,
 				C069E51420F769BB0015E998 /* ViewController.swift */,
-				C069E51620F769BB0015E998 /* Main.storyboard */,
-				C069E51920F769BD0015E998 /* Assets.xcassets */,
-				C069E51B20F769BD0015E998 /* LaunchScreen.storyboard */,
 				C069E51E20F769BD0015E998 /* Info.plist */,
+				C069E52820F770660015E998 /* Images.xcassets */,
 			);
 			path = iOS_Coding_test;
 			sourceTree = "<group>";
@@ -135,9 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C069E51D20F769BD0015E998 /* LaunchScreen.storyboard in Resources */,
-				C069E51A20F769BD0015E998 /* Assets.xcassets in Resources */,
-				C069E51820F769BB0015E998 /* Main.storyboard in Resources */,
+				C069E52920F770660015E998 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,25 +163,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		C069E51620F769BB0015E998 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C069E51720F769BB0015E998 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C069E51B20F769BD0015E998 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C069E51C20F769BD0015E998 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C069E51F20F769BD0015E998 /* Debug */ = {
@@ -309,7 +282,7 @@
 		C069E52220F769BD0015E998 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P6RZ729U4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -331,7 +304,7 @@
 		C069E52320F769BD0015E998 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P6RZ729U4;
 				FRAMEWORK_SEARCH_PATHS = (
