@@ -13,13 +13,13 @@ import SnapKit
 class HorizontalStackView: UIStackView {
     let leftView : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = Appearance.color.background
         return view
     }()
 
     let rightView : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = Appearance.color.background
         return view
     }()
 

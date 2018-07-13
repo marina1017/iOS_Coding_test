@@ -14,19 +14,23 @@ class VerticalStacView: UIStackView {
     let sectionTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "注目の企業"
+        label.font = Appearance.font.label(18, weight: .bold)
+        label.textColor = Appearance.color.font
         return label
     }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "銀行"
+        label.font = Appearance.font.label(16, weight: .light)
+        label.textColor = Appearance.color.font
         return label
     }()
 
     var horizontalStackView: HorizontalStackView = {
         let stackView = HorizontalStackView(frame: CGRect.zero)
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = Appearance.margin.large
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
         stackView.translatesAutoresizingMaskIntoConstraints = false

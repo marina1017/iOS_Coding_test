@@ -23,6 +23,7 @@ class FirstViewController: UIViewController {
         self.tableView.frame = self.view.frame
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.separatorColor = UIColor.clear
         
         // セルをテーブルに紐付ける
         tableView.register(TopicListCell.self, forCellReuseIdentifier: NSStringFromClass(TopicListCell.self))
@@ -60,7 +61,7 @@ extension FirstViewController: UITableViewDataSource {
 
     // セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 180
     }
     
     // セル生成

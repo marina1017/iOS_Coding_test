@@ -15,7 +15,7 @@ class TopicListCell: UITableViewCell {
     var cellContentView: VerticalStacView = {
         let stackView = VerticalStacView(frame: CGRect.zero)
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = Appearance.margin.small
         stackView.alignment = .leading
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,10 +31,10 @@ class TopicListCell: UITableViewCell {
         self.clipsToBounds = true
         self.addSubview(self.cellContentView)
         self.cellContentView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(Appearance.margin.small)
-            make.left.equalToSuperview().offset(Appearance.margin.small)
-            make.right.equalToSuperview().offset(-Appearance.margin.small)
-            make.bottom.equalToSuperview().offset(-Appearance.margin.small)
+            make.top.equalToSuperview().offset(Appearance.margin.large)
+            make.left.equalToSuperview().offset(Appearance.margin.large)
+            make.right.equalToSuperview().offset(-Appearance.margin.large)
+            make.bottom.equalToSuperview().offset(-Appearance.margin.large)
         }
 
     }
