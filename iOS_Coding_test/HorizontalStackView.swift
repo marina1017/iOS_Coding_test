@@ -13,13 +13,16 @@ import SnapKit
 class HorizontalStackView: UIStackView {
     let leftView : TopicContentView = {
         let view = TopicContentView()
-
+        view.isUserInteractionEnabled = true
+        view.isSelected = false
         return view
     }()
 
     let rightView : TopicContentView = {
         let view = TopicContentView()
         view.backgroundColor = Appearance.color.background
+        view.isUserInteractionEnabled = true
+        view.isSelected = false
         return view
     }()
 
@@ -35,6 +38,12 @@ class HorizontalStackView: UIStackView {
     private func commonInit() {
         self.addArrangedSubview(self.leftView)
         self.addArrangedSubview(self.rightView)
+        self.leftView.addTarget(self,
+                         action: #selector(HorizontalStackView.leftViewButtonTapped(sender:)),
+                         for: .touchUpInside)
+        self.rightView.addTarget(self,
+                                action: #selector(HorizontalStackView.rightViewButtonTapped(sender:)),
+                                for: .touchUpInside)
     }
 
     override func updateConstraints() {
@@ -58,5 +67,12 @@ class HorizontalStackView: UIStackView {
         }
     }
 
-    
+    @objc func leftViewButtonTapped(sender : AnyObject) {
+        self.leftView.isSelected = self.leftView.isSelected == true ? false : true
+    }
+
+    @objc func rightViewButtonTapped(sender : AnyObject) {
+        self.rightView.isSelected = self.rightView.isSelected == true ? false : true
+    }
+
 }

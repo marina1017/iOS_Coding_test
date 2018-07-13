@@ -25,12 +25,25 @@ class TopicContentView : UIButton {
         return label
     }()
 
+    let checkView: UIView = {
+        let checkView = UIView()
+        checkView.isUserInteractionEnabled = false
+        return checkView
+    }()
+
+    override var isSelected: Bool {
+        didSet {
+            self.setStyle()
+        }
+    }
+
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.layer.cornerRadius = 10.0
         self.backgroundColor = Appearance.color.background
         self.commonInit()
+
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,8 +51,24 @@ class TopicContentView : UIButton {
     }
 
     private func commonInit() {
+
         self.addSubview(self.topicTitleLabel)
         self.addSubview(self.followUpLabel)
+        self.addSubview(self.checkView)
+    }
+
+    func setStyle() {
+        let checkMark: UIImage?
+        if self.isSelected {
+            checkMark = UIImage(named:"checkButton")!
+        } else {
+            checkMark = UIImage(named:"emptyButton")!
+        }
+        let displayIcon = UIImageView(image: checkMark)
+        self.checkView.addSubview(displayIcon)
+        displayIcon.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
     }
 
     override func updateConstraints() {
@@ -52,8 +81,8 @@ class TopicContentView : UIButton {
         super.layoutSubviews()
         self.layoutTitleLabel()
         self.layoutFollowUpLabel()
+        self.layoutCheckView()
     }
-
 
     private func layoutTitleLabel() {
         self.topicTitleLabel.snp.makeConstraints{ make in
@@ -67,9 +96,18 @@ class TopicContentView : UIButton {
     private func layoutFollowUpLabel() {
         self.followUpLabel.snp.makeConstraints{ make in
             make.top.equalTo(self.topicTitleLabel.snp.bottom)
+            make.height.equalTo(Appearance.size.extraLarge)
             make.left.equalToSuperview().offset(Appearance.size.small)
             make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
+        }
+    }
+
+    private func layoutCheckView() {
+        self.checkView.snp.makeConstraints{ make in
+            make.height.equalTo(Appearance.size.default)
+            make.width.equalTo(Appearance.size.default)
+            make.right.equalToSuperview().offset(-Appearance.size.small)
+            make.bottom.equalToSuperview().offset(-Appearance.size.small)
         }
     }
 

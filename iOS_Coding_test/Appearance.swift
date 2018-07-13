@@ -42,12 +42,28 @@ final class Appearance {
     }
 
     struct Size {
+        var extraSmall: CGFloat {
+            return 5
+        }
+
         var small: CGFloat {
             return 10
         }
 
+        var medium: CGFloat {
+            return 15
+        }
+
         var `default`: CGFloat {
             return 20
+        }
+
+        var large: CGFloat {
+            return 25
+        }
+
+        var extraLarge: CGFloat {
+            return 30
         }
 
     }
