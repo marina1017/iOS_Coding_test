@@ -8,11 +8,19 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class TopicListCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .red
+        self.accessoryType = .none
+        self.layoutMargins = UIEdgeInsets.zero
+        self.separatorInset = UIEdgeInsets.zero
+        self.clipsToBounds = true
+//        self.cellContentView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
     }
     
     required init?(coder aDecoder: NSCoder) {
