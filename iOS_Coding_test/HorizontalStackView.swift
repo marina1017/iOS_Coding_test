@@ -11,14 +11,14 @@ import UIKit
 import SnapKit
 
 class HorizontalStackView: UIStackView {
-    let leftView : UIView = {
-        let view = UIView()
-        view.backgroundColor = Appearance.color.background
+    let leftView : TopicContentView = {
+        let view = TopicContentView()
+
         return view
     }()
 
-    let rightView : UIView = {
-        let view = UIView()
+    let rightView : TopicContentView = {
+        let view = TopicContentView()
         view.backgroundColor = Appearance.color.background
         return view
     }()

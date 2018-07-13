@@ -32,7 +32,7 @@ class VerticalStacView: UIStackView {
         stackView.axis = .horizontal
         stackView.spacing = Appearance.margin.large
         stackView.alignment = .leading
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()

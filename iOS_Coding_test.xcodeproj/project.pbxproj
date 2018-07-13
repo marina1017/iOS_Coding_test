@@ -16,6 +16,7 @@
 		C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E52C20F772C60015E998 /* SecondViewController.swift */; };
 		C0A3CFF320F8DFBD001EA46C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A3CFF220F8DFBD001EA46C /* Appearance.swift */; };
 		C0AE0BA520F8EBD8008E717F /* HorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0BA420F8EBD8008E717F /* HorizontalStackView.swift */; };
+		C0AE0BA720F8FAAF008E717F /* TopicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C069E52C20F772C60015E998 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C0A3CFF220F8DFBD001EA46C /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		C0AE0BA420F8EBD8008E717F /* HorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStackView.swift; sourceTree = "<group>"; };
+		C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				9C4C04E120F7A31B005CE398 /* TopicListCell.swift */,
 				9C4C04E320F7B2AB005CE398 /* VerticalStackView.swift */,
 				C0AE0BA420F8EBD8008E717F /* HorizontalStackView.swift */,
+				C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */,
 				C0A3CFF220F8DFBD001EA46C /* Appearance.swift */,
 				C069E51E20F769BD0015E998 /* Info.plist */,
 				C069E52820F770660015E998 /* Images.xcassets */,
@@ -178,6 +181,7 @@
 				C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */,
 				C0AE0BA520F8EBD8008E717F /* HorizontalStackView.swift in Sources */,
 				C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */,
+				C0AE0BA720F8FAAF008E717F /* TopicContentView.swift in Sources */,
 				9C4C04E420F7B2AB005CE398 /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
