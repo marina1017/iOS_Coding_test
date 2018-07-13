@@ -60,7 +60,7 @@ extension FirstViewController: UITableViewDataSource {
 
     // セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 200
     }
     
     // セル生成

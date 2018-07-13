@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class VerticalStacView: UIStackView {
     let sectionTitleLabel: UILabel = {
@@ -21,13 +22,17 @@ class VerticalStacView: UIStackView {
         label.text = "銀行"
         return label
     }()
-    
-    let view : UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.blue
-        return view
+
+    var horizontalStackView: HorizontalStackView = {
+        let stackView = HorizontalStackView(frame: CGRect.zero)
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
-    
+
     required override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
@@ -38,9 +43,9 @@ class VerticalStacView: UIStackView {
     }
     
     private func commonInit() {
-        self.addArrangedSubview(self.titleLabel)
         self.addArrangedSubview(self.sectionTitleLabel)
-        self.addArrangedSubview(self.view)
+        self.addArrangedSubview(self.titleLabel)
+        self.addArrangedSubview(self.horizontalStackView)
     }
     
     override func updateConstraints() {
@@ -51,9 +56,34 @@ class VerticalStacView: UIStackView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.layoutSectionTitleLabel()
         self.layoutTitleLabel()
-        self.layoutTextFiled()
-        self.layoutImageView()
+        self.layoutView()
     }
+
+    private func layoutSectionTitleLabel() {
+        self.sectionTitleLabel.sizeToFit()
+        self.sectionTitleLabel.snp.makeConstraints{ make in
+            make.width.equalToSuperview()
+            make.height.equalTo(Appearance.size.default)
+        }
+    }
+
+    private func layoutTitleLabel() {
+        self.titleLabel.sizeToFit()
+        self.titleLabel.snp.makeConstraints{ make in
+            make.width.equalToSuperview()
+            make.height.equalTo(Appearance.size.default)
+        }
+    }
+
+    private func layoutView() {
+        self.horizontalStackView.snp.makeConstraints{ make in
+            make.width.equalToSuperview()
+            make.height.equalTo(Appearance.size.default)
+        }
+    }
+
+
     
 }
