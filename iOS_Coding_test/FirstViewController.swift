@@ -9,34 +9,57 @@
 import UIKit
 import SnapKit
 
-class FirstViewController: UIViewController {
-    
-    var tableView: UITableView!
+class FirstViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+
+    var collectionView:UICollectionView!
+
+    var flowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumInteritemSpacing = Appearance.size.small
+        flowLayout.minimumLineSpacing = Appearance.size.small
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: Appearance.size.medium, bottom: Appearance.size.default, right: Appearance.size.medium)
+        flowLayout.headerReferenceSize = CGSize(width: 0, height: 50)
+        return flowLayout
+    }()
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+    }
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationItem.title = "トピック一覧"
-        
-        
-        self.tableView = UITableView()
-        self.tableView.frame = self.view.frame
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.separatorColor = UIColor.clear
-        
-        // セルをテーブルに紐付ける
-        tableView.register(TopicListTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(TopicListTableViewCell.self))
-        
-        //テーブルビューを触れないように
-        tableView.allowsSelection = false
-        
-        // テーブルを表示
-        view.addSubview(tableView)
+
+        // レイアウト作成
+        self.flowLayout.itemSize = CGSize(width: (self.view.frame.size.width - (Appearance.size.small*2))/2 - 10, height: 100)
+
+        //collectionView
+        self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.flowLayout)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.backgroundColor = .white
+        //セルを登録
+        self.collectionView.register(TopicContentView.self, forCellWithReuseIdentifier: "cell")
+        //ヘッダーを登録
+        self.collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+
+        self.view.addSubview(collectionView)
+
+        // AutoLayout制約を追加
+        setupConstraints()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super .viewDidAppear(animated)
+
+    private func setupConstraints(){
+        self.collectionView.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,46 +67,55 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
 
-extension FirstViewController: UITableViewDataSource {
-    
-    // セクションごとにデータ要素数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    // セクション数
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+extension FirstViewController: UICollectionViewDelegate {
+    //セル選択時に呼び出されるメソッド
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let topicContentView = collectionView.cellForItem(at: indexPath) as! TopicContentView
+        topicContentView.isSelectedCell = topicContentView.isSelectedCell == false ? true : false
+        topicContentView.setStyle()
     }
 
-    // セルの高さ
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.lightGray // タップしているときの色にする
     }
-    
-    // セル生成
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TopicListTableViewCell.self), for: indexPath)
 
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = Appearance.color.background  // 元の色にする
+    }
+}
+
+extension FirstViewController: UICollectionViewDataSource {
+    //個数
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+
+    //セルに何を表示するか
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as UICollectionViewCell
+        cell.isSelected = false
 
         return cell
     }
-}
 
-// セルタップ時の動作定義など
-extension FirstViewController: UITableViewDelegate {
-    
-    // セクションヘッダの高さ
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    
-    // セルタップ時の挙動
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-    }
-}
+    // ヘッダー追加のため
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
+
+        let headerReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath as IndexPath) as UICollectionReusableView
+
+        return headerReusableView
+    }
+
+    //セクション数の指定
+    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 30
+    }
+
+
+}

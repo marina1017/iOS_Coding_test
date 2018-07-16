@@ -56,7 +56,6 @@ class TopicContentView : UICollectionViewCell {
 
     func setStyle() {
         let checkMark: UIImage?
-        print("self.isSelected",self.isSelected)
         if self.isSelectedCell {
             checkMark = UIImage(named:"checkButton")!
         } else {

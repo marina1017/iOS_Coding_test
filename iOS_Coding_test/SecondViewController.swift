@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout{
 
     var collectionView:UICollectionView!
 
@@ -33,7 +33,6 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
         super.init(nibName: nil, bundle: nil)
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -41,7 +40,6 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
 
         // レイアウト作成
         self.flowLayout.itemSize = CGSize(width: (self.view.frame.size.width - (Appearance.size.small*2))/2 - 10, height: 100)
-
 
         //collectionView
         self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.flowLayout)
@@ -70,9 +68,11 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension SecondViewController: UICollectionViewDelegate {
     //セル選択時に呼び出されるメソッド
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
         let topicContentView = collectionView.cellForItem(at: indexPath) as! TopicContentView
         topicContentView.isSelectedCell = topicContentView.isSelectedCell == false ? true : false
         topicContentView.setStyle()
