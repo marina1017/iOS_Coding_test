@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C4C04E220F7A31B005CE398 /* TopicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C04E120F7A31B005CE398 /* TopicListCell.swift */; };
+		9C4C04E220F7A31B005CE398 /* TopicListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C04E120F7A31B005CE398 /* TopicListTableViewCell.swift */; };
 		9C4C04E420F7B2AB005CE398 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C04E320F7B2AB005CE398 /* VerticalStackView.swift */; };
+		C0681CE220FC7B5B00619DD0 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CE120FC7B5B00619DD0 /* SectionHeader.swift */; };
 		C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51220F769BB0015E998 /* AppDelegate.swift */; };
 		C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51420F769BB0015E998 /* FirstViewController.swift */; };
 		C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C069E52520F76C300015E998 /* SnapKit.framework */; };
@@ -20,8 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C4C04E120F7A31B005CE398 /* TopicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListCell.swift; sourceTree = "<group>"; };
+		9C4C04E120F7A31B005CE398 /* TopicListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListTableViewCell.swift; sourceTree = "<group>"; };
 		9C4C04E320F7B2AB005CE398 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		C0681CE120FC7B5B00619DD0 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		C069E50F20F769BB0015E998 /* iOS_Coding_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Coding_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069E51220F769BB0015E998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069E51420F769BB0015E998 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -69,13 +71,14 @@
 				C069E51220F769BB0015E998 /* AppDelegate.swift */,
 				C069E51420F769BB0015E998 /* FirstViewController.swift */,
 				C069E52C20F772C60015E998 /* SecondViewController.swift */,
-				9C4C04E120F7A31B005CE398 /* TopicListCell.swift */,
+				9C4C04E120F7A31B005CE398 /* TopicListTableViewCell.swift */,
 				9C4C04E320F7B2AB005CE398 /* VerticalStackView.swift */,
 				C0AE0BA420F8EBD8008E717F /* HorizontalStackView.swift */,
 				C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */,
 				C0A3CFF220F8DFBD001EA46C /* Appearance.swift */,
 				C069E51E20F769BD0015E998 /* Info.plist */,
 				C069E52820F770660015E998 /* Images.xcassets */,
+				C0681CE120FC7B5B00619DD0 /* SectionHeader.swift */,
 			);
 			path = iOS_Coding_test;
 			sourceTree = "<group>";
@@ -177,9 +180,10 @@
 			files = (
 				C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */,
 				C0A3CFF320F8DFBD001EA46C /* Appearance.swift in Sources */,
-				9C4C04E220F7A31B005CE398 /* TopicListCell.swift in Sources */,
+				9C4C04E220F7A31B005CE398 /* TopicListTableViewCell.swift in Sources */,
 				C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */,
 				C0AE0BA520F8EBD8008E717F /* HorizontalStackView.swift in Sources */,
+				C0681CE220FC7B5B00619DD0 /* SectionHeader.swift in Sources */,
 				C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */,
 				C0AE0BA720F8FAAF008E717F /* TopicContentView.swift in Sources */,
 				9C4C04E420F7B2AB005CE398 /* VerticalStackView.swift in Sources */,

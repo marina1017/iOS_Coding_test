@@ -26,7 +26,7 @@ class FirstViewController: UIViewController {
         self.tableView.separatorColor = UIColor.clear
         
         // セルをテーブルに紐付ける
-        tableView.register(TopicListCell.self, forCellReuseIdentifier: NSStringFromClass(TopicListCell.self))
+        tableView.register(TopicListTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(TopicListTableViewCell.self))
         
         //テーブルビューを触れないように
         tableView.allowsSelection = false
@@ -66,9 +66,9 @@ extension FirstViewController: UITableViewDataSource {
     
     // セル生成
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TopicListCell.self), for: indexPath)
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TopicListTableViewCell.self), for: indexPath)
+
+
         return cell
     }
 }
