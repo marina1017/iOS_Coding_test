@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicContentView : UIButton {
+class TopicContentView : UICollectionViewCell {
     let topicTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "自動運転"
@@ -59,6 +59,7 @@ class TopicContentView : UIButton {
 
     func setStyle() {
         let checkMark: UIImage?
+        print("self.isSelected",self.isSelected)
         if self.isSelected {
             checkMark = UIImage(named:"checkButton")!
         } else {

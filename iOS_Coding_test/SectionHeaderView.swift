@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class SectionHeader: UICollectionReusableView {
+final class SectionHeaderView: UICollectionReusableView {
     let sectionTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "注目の企業"
@@ -59,6 +59,7 @@ final class SectionHeader: UICollectionReusableView {
         self.sectionTitleLabel.snp.makeConstraints{ make in
             make.top.equalToSuperview()
             make.width.equalToSuperview()
+            make.left.equalToSuperview().offset(Appearance.size.default)
             make.height.equalTo(Appearance.size.default)
             make.bottom.equalTo(self.titleLabel.snp.top)
         }
@@ -68,6 +69,7 @@ final class SectionHeader: UICollectionReusableView {
         self.titleLabel.sizeToFit()
         self.titleLabel.snp.makeConstraints{ make in
             make.top.equalTo(self.sectionTitleLabel.snp.bottom)
+            make.left.equalToSuperview().offset(Appearance.size.default)
             make.width.equalToSuperview()
             make.height.equalTo(Appearance.size.default)
         }

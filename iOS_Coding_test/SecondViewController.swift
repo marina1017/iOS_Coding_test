@@ -10,9 +10,19 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource  {
+class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
 
     var collectionView:UICollectionView!
+
+    var flowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumInteritemSpacing = Appearance.size.small
+        flowLayout.minimumLineSpacing = Appearance.size.small
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: Appearance.size.medium, bottom: Appearance.size.default, right: Appearance.size.medium)
+        flowLayout.headerReferenceSize = CGSize(width: 0, height: 50)
+        return flowLayout
+    }()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,37 +36,32 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
+        self.navigationItem.title = "フォロー済み"
 
         // レイアウト作成
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = Appearance.size.small
-        flowLayout.minimumLineSpacing = Appearance.size.small
-        flowLayout.itemSize = CGSize(width: (self.view.frame.size.width - (Appearance.size.small*2))/2 - 10, height: 100)
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: Appearance.size.default, right: 0)
-        flowLayout.headerReferenceSize = CGSize(width: 0, height: 50)
+        self.flowLayout.itemSize = CGSize(width: (self.view.frame.size.width - (Appearance.size.small*2))/2 - 10, height: 100)
 
-        // コレクションビュー作成
-        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")  // 2.ヘッダー追加のため
-        collectionView.dataSource = self
-        collectionView.backgroundColor = .white
-        view.addSubview(collectionView)
+
+        //collectionView
+        self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.flowLayout)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.backgroundColor = .white
+        //セルを登録
+        self.collectionView.register(TopicContentView.self, forCellWithReuseIdentifier: "cell")
+        //ヘッダーを登録
+        self.collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+
+        self.view.addSubview(collectionView)
 
         // AutoLayout制約を追加
         setupConstraints()
     }
 
     private func setupConstraints(){
-
-        // コレクションビューの制約
-
         self.collectionView.snp.makeConstraints{ make in
-            make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(Appearance.size.medium)
-            make.right.equalToSuperview().offset(-Appearance.size.medium)
-            make.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
 
@@ -65,16 +70,38 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
         // Dispose of any resources that can be recreated.
     }
 
+    //セル選択時に呼び出されるメソッド
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+        let TopicContentView = collectionView.cellForItem(at: indexPath) as! TopicContentView
+        print("TopicContentView.isSelected",TopicContentView.isSelected)
+        TopicContentView.isSelected = !TopicContentView.isSelected
+        //TopicContentView.isSelected = TopicContentView.isSelected == false ? true : false
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.lightGray // タップしているときの色にする
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = Appearance.color.background  // 元の色にする
+    }
+}
+
+extension SecondViewController: UICollectionViewDataSource {
     //個数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
 
     //セルに何を表示するか
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as UICollectionViewCell
-        cell.backgroundColor = UIColor.red
+        cell.isSelected = false
+
         return cell
     }
 
@@ -87,8 +114,10 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
         return headerReusableView
     }
 
+    //セクション数の指定
     internal func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 30
     }
+
 
 }

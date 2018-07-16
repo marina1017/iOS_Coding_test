@@ -38,12 +38,12 @@ class HorizontalStackView: UIStackView {
     private func commonInit() {
         self.addArrangedSubview(self.leftView)
         self.addArrangedSubview(self.rightView)
-        self.leftView.addTarget(self,
-                         action: #selector(HorizontalStackView.leftViewButtonTapped(sender:)),
-                         for: .touchUpInside)
-        self.rightView.addTarget(self,
-                                action: #selector(HorizontalStackView.rightViewButtonTapped(sender:)),
-                                for: .touchUpInside)
+//        self.leftView.addTarget(self,
+//                         action: #selector(HorizontalStackView.leftViewButtonTapped(sender:)),
+//                         for: .touchUpInside)
+//        self.rightView.addTarget(self,
+//                                action: #selector(HorizontalStackView.rightViewButtonTapped(sender:)),
+//                                for: .touchUpInside)
     }
 
     override func updateConstraints() {
