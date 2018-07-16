@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicContentView : UIButton {
+class TopicContentView : UICollectionViewCell {
     let topicTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "自動運転"
@@ -31,11 +31,7 @@ class TopicContentView : UIButton {
         return checkView
     }()
 
-    override var isSelected: Bool {
-        didSet {
-            self.setStyle()
-        }
-    }
+    var isSelectedCell: Bool = false
 
 
     override init(frame: CGRect) {
@@ -43,6 +39,7 @@ class TopicContentView : UIButton {
         self.layer.cornerRadius = 10.0
         self.backgroundColor = Appearance.color.background
         self.commonInit()
+        self.setStyle()
 
     }
 
@@ -59,7 +56,7 @@ class TopicContentView : UIButton {
 
     func setStyle() {
         let checkMark: UIImage?
-        if self.isSelected {
+        if self.isSelectedCell {
             checkMark = UIImage(named:"checkButton")!
         } else {
             checkMark = UIImage(named:"emptyButton")!

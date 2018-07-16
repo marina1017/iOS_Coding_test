@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C4C04E220F7A31B005CE398 /* TopicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C04E120F7A31B005CE398 /* TopicListCell.swift */; };
-		9C4C04E420F7B2AB005CE398 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C04E320F7B2AB005CE398 /* VerticalStackView.swift */; };
+		C0681CE220FC7B5B00619DD0 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CE120FC7B5B00619DD0 /* SectionHeaderView.swift */; };
+		C0681CEA20FCC7FC00619DD0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0681CE920FCC7FC00619DD0 /* Alamofire.framework */; };
+		C0681CEC20FCC80600619DD0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0681CEB20FCC80600619DD0 /* SwiftyJSON.framework */; };
 		C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51220F769BB0015E998 /* AppDelegate.swift */; };
 		C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51420F769BB0015E998 /* FirstViewController.swift */; };
 		C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C069E52520F76C300015E998 /* SnapKit.framework */; };
 		C069E52920F770660015E998 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C069E52820F770660015E998 /* Images.xcassets */; };
 		C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E52C20F772C60015E998 /* SecondViewController.swift */; };
 		C0A3CFF320F8DFBD001EA46C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A3CFF220F8DFBD001EA46C /* Appearance.swift */; };
-		C0AE0BA520F8EBD8008E717F /* HorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0BA420F8EBD8008E717F /* HorizontalStackView.swift */; };
 		C0AE0BA720F8FAAF008E717F /* TopicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C4C04E120F7A31B005CE398 /* TopicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListCell.swift; sourceTree = "<group>"; };
-		9C4C04E320F7B2AB005CE398 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		C0681CE120FC7B5B00619DD0 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		C0681CE920FCC7FC00619DD0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		C0681CEB20FCC80600619DD0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		C069E50F20F769BB0015E998 /* iOS_Coding_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Coding_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069E51220F769BB0015E998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069E51420F769BB0015E998 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -30,7 +31,6 @@
 		C069E52820F770660015E998 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C069E52C20F772C60015E998 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C0A3CFF220F8DFBD001EA46C /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		C0AE0BA420F8EBD8008E717F /* HorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStackView.swift; sourceTree = "<group>"; };
 		C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0681CEC20FCC80600619DD0 /* SwiftyJSON.framework in Frameworks */,
+				C0681CEA20FCC7FC00619DD0 /* Alamofire.framework in Frameworks */,
 				C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +48,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0681CE520FCC10D00619DD0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C069E51420F769BB0015E998 /* FirstViewController.swift */,
+				C069E52C20F772C60015E998 /* SecondViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C0681CE620FCC16100619DD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0681CE120FC7B5B00619DD0 /* SectionHeaderView.swift */,
+				C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C0681CE720FCC17500619DD0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C0A3CFF220F8DFBD001EA46C /* Appearance.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C0681CE820FCC18500619DD0 /* VIewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIewModels;
+			sourceTree = "<group>";
+		};
 		C069E50620F769BA0015E998 = {
 			isa = PBXGroup;
 			children = (
@@ -67,13 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				C069E51220F769BB0015E998 /* AppDelegate.swift */,
-				C069E51420F769BB0015E998 /* FirstViewController.swift */,
-				C069E52C20F772C60015E998 /* SecondViewController.swift */,
-				9C4C04E120F7A31B005CE398 /* TopicListCell.swift */,
-				9C4C04E320F7B2AB005CE398 /* VerticalStackView.swift */,
-				C0AE0BA420F8EBD8008E717F /* HorizontalStackView.swift */,
-				C0AE0BA620F8FAAF008E717F /* TopicContentView.swift */,
-				C0A3CFF220F8DFBD001EA46C /* Appearance.swift */,
+				C0681CE820FCC18500619DD0 /* VIewModels */,
+				C0681CE720FCC17500619DD0 /* Core */,
+				C0681CE620FCC16100619DD0 /* Views */,
+				C0681CE520FCC10D00619DD0 /* Controllers */,
 				C069E51E20F769BD0015E998 /* Info.plist */,
 				C069E52820F770660015E998 /* Images.xcassets */,
 			);
@@ -83,6 +115,8 @@
 		C069E52420F76C300015E998 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0681CEB20FCC80600619DD0 /* SwiftyJSON.framework */,
+				C0681CE920FCC7FC00619DD0 /* Alamofire.framework */,
 				C069E52520F76C300015E998 /* SnapKit.framework */,
 			);
 			name = Frameworks;
@@ -161,6 +195,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)//Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -177,12 +213,10 @@
 			files = (
 				C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */,
 				C0A3CFF320F8DFBD001EA46C /* Appearance.swift in Sources */,
-				9C4C04E220F7A31B005CE398 /* TopicListCell.swift in Sources */,
 				C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */,
-				C0AE0BA520F8EBD8008E717F /* HorizontalStackView.swift in Sources */,
+				C0681CE220FC7B5B00619DD0 /* SectionHeaderView.swift in Sources */,
 				C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */,
 				C0AE0BA720F8FAAF008E717F /* TopicContentView.swift in Sources */,
-				9C4C04E420F7B2AB005CE398 /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
