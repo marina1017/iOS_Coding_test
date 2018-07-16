@@ -16,15 +16,15 @@ struct Groups: JSONDecodable {
         guard let dictionary = json as? [String : Any] else {
             throw JSONDecodeError.invalidFormat(json: json)
         }
-        guard let title = dictionary["title"] as? Int else {
+        guard let title = dictionary["title"] as? String else {
             throw JSONDecodeError.missingValue(key: "title", actualValue: dictionary["title"])
         }
-        guard let hitsObject = dictionary["hit"] as? String else {
+        guard let hitsObject = dictionary["hit"] as? [Contents] else {
             throw JSONDecodeError.missingValue(key: "hit", actualValue: dictionary["hit"])
         }
 
         self.title = title
-        self.hit = try [Contents(json: hitsObject)]
+        self.hits = try [Contents(json: hitsObject)]
     }
 
 }

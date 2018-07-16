@@ -16,6 +16,6 @@ enum ClientError :Error {
     case responseParseError(Error)
 
     //APIからエラーレスポンスを受け取った
-    case apiError(GitHubAPIError)
+    //case apiError(GitHubAPIError)
 }
 

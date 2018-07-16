@@ -19,7 +19,7 @@ struct Contents: JSONDecodable {
             throw JSONDecodeError.invalidFormat(json: json)
         }
 
-        guard let id = dictionary["id"] as? Int else {
+        guard let id = dictionary["id"] as? String else {
             throw JSONDecodeError.missingValue(key: "id", actualValue: dictionary["id"])
         }
 

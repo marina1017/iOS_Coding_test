@@ -18,6 +18,9 @@
 		C0681CFA20FCE97100619DD0 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CF920FCE97100619DD0 /* SearchResponse.swift */; };
 		C0681CFD20FCEBFE00619DD0 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CFC20FCEBFE00619DD0 /* ClientError.swift */; };
 		C0681CFF20FCEC0C00619DD0 /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CFE20FCEC0C00619DD0 /* GitHubAPIError.swift */; };
+		C0681D0220FCEE5900619DD0 /* FollowablesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0120FCEE5900619DD0 /* FollowablesRequest.swift */; };
+		C0681D0420FCEF8600619DD0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0320FCEF8600619DD0 /* HTTPMethod.swift */; };
+		C0681D0620FCF0A100619DD0 /* followablesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0520FCF0A100619DD0 /* followablesAPI.swift */; };
 		C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51220F769BB0015E998 /* AppDelegate.swift */; };
 		C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51420F769BB0015E998 /* FirstViewController.swift */; };
 		C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C069E52520F76C300015E998 /* SnapKit.framework */; };
@@ -39,6 +42,9 @@
 		C0681CF920FCE97100619DD0 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		C0681CFC20FCEBFE00619DD0 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		C0681CFE20FCEC0C00619DD0 /* GitHubAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
+		C0681D0120FCEE5900619DD0 /* FollowablesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowablesRequest.swift; sourceTree = "<group>"; };
+		C0681D0320FCEF8600619DD0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		C0681D0520FCF0A100619DD0 /* followablesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = followablesAPI.swift; sourceTree = "<group>"; };
 		C069E50F20F769BB0015E998 /* iOS_Coding_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Coding_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069E51220F769BB0015E998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069E51420F769BB0015E998 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,16 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		C0681D0020FCEE3D00619DD0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				C0681D0120FCEE5900619DD0 /* FollowablesRequest.swift */,
+				C0681D0320FCEF8600619DD0 /* HTTPMethod.swift */,
+				C0681D0520FCF0A100619DD0 /* followablesAPI.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		C069E50620F769BA0015E998 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +162,7 @@
 		C069E51120F769BB0015E998 /* iOS_Coding_test */ = {
 			isa = PBXGroup;
 			children = (
+				C0681D0020FCEE3D00619DD0 /* Request */,
 				C0681CFB20FCEBE900619DD0 /* Error */,
 				C0681CF620FCE3CC00619DD0 /* Response */,
 				C0681CEF20FCE13B00619DD0 /* Models */,
@@ -261,15 +278,18 @@
 			files = (
 				C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */,
 				C0681CF320FCE25900619DD0 /* Contents.swift in Sources */,
+				C0681D0620FCF0A100619DD0 /* followablesAPI.swift in Sources */,
 				C0681CF120FCE21A00619DD0 /* Groups.swift in Sources */,
 				C0A3CFF320F8DFBD001EA46C /* Appearance.swift in Sources */,
 				C0681CFD20FCEBFE00619DD0 /* ClientError.swift in Sources */,
 				C0681CF820FCE51900619DD0 /* JSONDecodable.swift in Sources */,
 				C0681CF520FCE3C500619DD0 /* JSONDecodeError.swift in Sources */,
+				C0681D0220FCEE5900619DD0 /* FollowablesRequest.swift in Sources */,
 				C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */,
 				C0681CFF20FCEC0C00619DD0 /* GitHubAPIError.swift in Sources */,
 				C0681CEE20FCE13300619DD0 /* Sections.swift in Sources */,
 				C0681CFA20FCE97100619DD0 /* SearchResponse.swift in Sources */,
+				C0681D0420FCEF8600619DD0 /* HTTPMethod.swift in Sources */,
 				C0681CE220FC7B5B00619DD0 /* SectionHeaderView.swift in Sources */,
 				C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */,
 				C0AE0BA720F8FAAF008E717F /* TopicContentView.swift in Sources */,
