@@ -31,11 +31,7 @@ class TopicContentView : UICollectionViewCell {
         return checkView
     }()
 
-    override var isSelected: Bool {
-        didSet {
-            self.setStyle()
-        }
-    }
+    var isSelectedCell: Bool = false
 
 
     override init(frame: CGRect) {
@@ -43,6 +39,7 @@ class TopicContentView : UICollectionViewCell {
         self.layer.cornerRadius = 10.0
         self.backgroundColor = Appearance.color.background
         self.commonInit()
+        self.setStyle()
 
     }
 
@@ -60,7 +57,7 @@ class TopicContentView : UICollectionViewCell {
     func setStyle() {
         let checkMark: UIImage?
         print("self.isSelected",self.isSelected)
-        if self.isSelected {
+        if self.isSelectedCell {
             checkMark = UIImage(named:"checkButton")!
         } else {
             checkMark = UIImage(named:"emptyButton")!

@@ -73,10 +73,9 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
     //セル選択時に呼び出されるメソッド
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-        let TopicContentView = collectionView.cellForItem(at: indexPath) as! TopicContentView
-        print("TopicContentView.isSelected",TopicContentView.isSelected)
-        TopicContentView.isSelected = !TopicContentView.isSelected
-        //TopicContentView.isSelected = TopicContentView.isSelected == false ? true : false
+        let topicContentView = collectionView.cellForItem(at: indexPath) as! TopicContentView
+        topicContentView.isSelectedCell = topicContentView.isSelectedCell == false ? true : false
+        topicContentView.setStyle()
     }
 
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
