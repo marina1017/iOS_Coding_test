@@ -10,6 +10,14 @@
 		C0681CE220FC7B5B00619DD0 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CE120FC7B5B00619DD0 /* SectionHeaderView.swift */; };
 		C0681CEA20FCC7FC00619DD0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0681CE920FCC7FC00619DD0 /* Alamofire.framework */; };
 		C0681CEC20FCC80600619DD0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0681CEB20FCC80600619DD0 /* SwiftyJSON.framework */; };
+		C0681CEE20FCE13300619DD0 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CED20FCE13300619DD0 /* Sections.swift */; };
+		C0681CF120FCE21A00619DD0 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CF020FCE21A00619DD0 /* Groups.swift */; };
+		C0681CF320FCE25900619DD0 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CF220FCE25900619DD0 /* Contents.swift */; };
+		C0681CF520FCE3C500619DD0 /* JSONDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CF420FCE3C500619DD0 /* JSONDecodeError.swift */; };
+		C0681CF820FCE51900619DD0 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CF720FCE51900619DD0 /* JSONDecodable.swift */; };
+		C0681CFA20FCE97100619DD0 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CF920FCE97100619DD0 /* SearchResponse.swift */; };
+		C0681CFD20FCEBFE00619DD0 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CFC20FCEBFE00619DD0 /* ClientError.swift */; };
+		C0681CFF20FCEC0C00619DD0 /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CFE20FCEC0C00619DD0 /* GitHubAPIError.swift */; };
 		C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51220F769BB0015E998 /* AppDelegate.swift */; };
 		C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51420F769BB0015E998 /* FirstViewController.swift */; };
 		C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C069E52520F76C300015E998 /* SnapKit.framework */; };
@@ -23,6 +31,14 @@
 		C0681CE120FC7B5B00619DD0 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		C0681CE920FCC7FC00619DD0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		C0681CEB20FCC80600619DD0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		C0681CED20FCE13300619DD0 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
+		C0681CF020FCE21A00619DD0 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		C0681CF220FCE25900619DD0 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
+		C0681CF420FCE3C500619DD0 /* JSONDecodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodeError.swift; sourceTree = "<group>"; };
+		C0681CF720FCE51900619DD0 /* JSONDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		C0681CF920FCE97100619DD0 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		C0681CFC20FCEBFE00619DD0 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		C0681CFE20FCEC0C00619DD0 /* GitHubAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
 		C069E50F20F769BB0015E998 /* iOS_Coding_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Coding_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069E51220F769BB0015E998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069E51420F769BB0015E998 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +97,35 @@
 			path = VIewModels;
 			sourceTree = "<group>";
 		};
+		C0681CEF20FCE13B00619DD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C0681CED20FCE13300619DD0 /* Sections.swift */,
+				C0681CF020FCE21A00619DD0 /* Groups.swift */,
+				C0681CF220FCE25900619DD0 /* Contents.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C0681CF620FCE3CC00619DD0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C0681CF420FCE3C500619DD0 /* JSONDecodeError.swift */,
+				C0681CF720FCE51900619DD0 /* JSONDecodable.swift */,
+				C0681CF920FCE97100619DD0 /* SearchResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		C0681CFB20FCEBE900619DD0 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C0681CFC20FCEBFE00619DD0 /* ClientError.swift */,
+				C0681CFE20FCEC0C00619DD0 /* GitHubAPIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C069E50620F769BA0015E998 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +146,9 @@
 		C069E51120F769BB0015E998 /* iOS_Coding_test */ = {
 			isa = PBXGroup;
 			children = (
+				C0681CFB20FCEBE900619DD0 /* Error */,
+				C0681CF620FCE3CC00619DD0 /* Response */,
+				C0681CEF20FCE13B00619DD0 /* Models */,
 				C069E51220F769BB0015E998 /* AppDelegate.swift */,
 				C0681CE820FCC18500619DD0 /* VIewModels */,
 				C0681CE720FCC17500619DD0 /* Core */,
@@ -212,8 +260,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */,
+				C0681CF320FCE25900619DD0 /* Contents.swift in Sources */,
+				C0681CF120FCE21A00619DD0 /* Groups.swift in Sources */,
 				C0A3CFF320F8DFBD001EA46C /* Appearance.swift in Sources */,
+				C0681CFD20FCEBFE00619DD0 /* ClientError.swift in Sources */,
+				C0681CF820FCE51900619DD0 /* JSONDecodable.swift in Sources */,
+				C0681CF520FCE3C500619DD0 /* JSONDecodeError.swift in Sources */,
 				C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */,
+				C0681CFF20FCEC0C00619DD0 /* GitHubAPIError.swift in Sources */,
+				C0681CEE20FCE13300619DD0 /* Sections.swift in Sources */,
+				C0681CFA20FCE97100619DD0 /* SearchResponse.swift in Sources */,
 				C0681CE220FC7B5B00619DD0 /* SectionHeaderView.swift in Sources */,
 				C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */,
 				C0AE0BA720F8FAAF008E717F /* TopicContentView.swift in Sources */,

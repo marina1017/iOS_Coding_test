@@ -47,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //現在のウィンドウを表示し、それを同じレベルまたはそれ以下の他のすべてのウィンドウの前に置く便利な関数。
         self.window?.makeKeyAndVisible()
+
+        getArticles()
         return true
     }
 
@@ -70,6 +72,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+    func getArticles() {
+
+        Alamofire.request("https://deeplink.dev.n8s.jp/quiz/followables.json").responseJSON
+        { response in
+
+            guard let object = response.result.value else {
+                return
+            }
+            let json = JSON(object)
+            json["sections"].forEach{(_, data) in
+                let title = data["title"].string!
+                print(title) // foo or bar
+//                let groups = data["title"]["groups"].string!
+//                print(groups)
+//                let title2 = data["title"]["groups"]["title"].string!
+//                print(title2)
+
+            }
+
+        }
+
     }
 
 
