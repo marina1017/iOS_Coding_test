@@ -13,18 +13,26 @@ struct Groups: JSONDecodable {
     let hits: [Contents]
 
     init(json: Any) throws {
+
         guard let dictionary = json as? [String : Any] else {
+        //guard let dictionary = json as? [String : Any] else {
+            //self.title = ""
             throw JSONDecodeError.invalidFormat(json: json)
         }
+
         guard let title = dictionary["title"] as? String else {
             throw JSONDecodeError.missingValue(key: "title", actualValue: dictionary["title"])
         }
-        guard let hitsObject = dictionary["hit"] as? [Contents] else {
-            throw JSONDecodeError.missingValue(key: "hit", actualValue: dictionary["hit"])
+
+        guard let hitsObject = dictionary["hits"] as? [Any] else {
+            throw JSONDecodeError.missingValue(key: "hits", actualValue: dictionary["hits"])
+        }
+        let hits = try hitsObject.map {
+            return try Contents(json: $0)
         }
 
         self.title = title
-        self.hits = try [Contents(json: hitsObject)]
+        self.hits = hits
     }
 
 }

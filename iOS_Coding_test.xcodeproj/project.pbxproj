@@ -21,6 +21,8 @@
 		C0681D0220FCEE5900619DD0 /* FollowablesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0120FCEE5900619DD0 /* FollowablesRequest.swift */; };
 		C0681D0420FCEF8600619DD0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0320FCEF8600619DD0 /* HTTPMethod.swift */; };
 		C0681D0620FCF0A100619DD0 /* followablesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0520FCF0A100619DD0 /* followablesAPI.swift */; };
+		C0681D0820FCF73200619DD0 /* FollowablesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0720FCF73200619DD0 /* FollowablesAPIClient.swift */; };
+		C0681D0A20FCF7EF00619DD0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681D0920FCF7EF00619DD0 /* Result.swift */; };
 		C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51220F769BB0015E998 /* AppDelegate.swift */; };
 		C069E51520F769BB0015E998 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069E51420F769BB0015E998 /* FirstViewController.swift */; };
 		C069E52620F76C300015E998 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C069E52520F76C300015E998 /* SnapKit.framework */; };
@@ -45,6 +47,8 @@
 		C0681D0120FCEE5900619DD0 /* FollowablesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowablesRequest.swift; sourceTree = "<group>"; };
 		C0681D0320FCEF8600619DD0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C0681D0520FCF0A100619DD0 /* followablesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = followablesAPI.swift; sourceTree = "<group>"; };
+		C0681D0720FCF73200619DD0 /* FollowablesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowablesAPIClient.swift; sourceTree = "<group>"; };
+		C0681D0920FCF7EF00619DD0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		C069E50F20F769BB0015E998 /* iOS_Coding_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Coding_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069E51220F769BB0015E998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069E51420F769BB0015E998 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				C0A3CFF220F8DFBD001EA46C /* Appearance.swift */,
+				C0681D0920FCF7EF00619DD0 /* Result.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				C0681D0120FCEE5900619DD0 /* FollowablesRequest.swift */,
 				C0681D0320FCEF8600619DD0 /* HTTPMethod.swift */,
 				C0681D0520FCF0A100619DD0 /* followablesAPI.swift */,
+				C0681D0720FCF73200619DD0 /* FollowablesAPIClient.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -278,6 +284,8 @@
 			files = (
 				C069E52D20F772C60015E998 /* SecondViewController.swift in Sources */,
 				C0681CF320FCE25900619DD0 /* Contents.swift in Sources */,
+				C0681D0A20FCF7EF00619DD0 /* Result.swift in Sources */,
+				C0681D0820FCF73200619DD0 /* FollowablesAPIClient.swift in Sources */,
 				C0681D0620FCF0A100619DD0 /* followablesAPI.swift in Sources */,
 				C0681CF120FCE21A00619DD0 /* Groups.swift in Sources */,
 				C0A3CFF320F8DFBD001EA46C /* Appearance.swift in Sources */,

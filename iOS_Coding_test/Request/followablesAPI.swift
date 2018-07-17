@@ -19,7 +19,8 @@ final class FollowablesAPI {
         }
 
         var path: String {
-            return "/quiz/followables.json"
+            return "/bins/156ww6"
+            //return "/quiz/followables.json"
         }
 
         var parameters: Any? {

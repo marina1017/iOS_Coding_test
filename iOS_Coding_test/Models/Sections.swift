@@ -10,7 +10,7 @@ import Foundation
 
 struct Sections: JSONDecodable {
     let title: String
-    let groups: Groups
+    let groups: [Groups]
 
     init(json: Any) throws {
         guard let dictionary = json as? [String: Any] else {
@@ -21,11 +21,15 @@ struct Sections: JSONDecodable {
             throw JSONDecodeError.missingValue(key: "title", actualValue: dictionary["title"])
         }
 
-        guard let groupsObject = dictionary["groups"] as? Groups else {
+        guard let groupsObject = dictionary["groups"] as? [Any] else {
             throw JSONDecodeError.missingValue(key: "groups", actualValue: dictionary["groups"])
         }
+        let groups = try groupsObject.map {
+            return try Groups(json: $0)
+        }
+
         self.title = title
-        self.groups = try Groups(json: groupsObject)
+        self.groups = groups
     }
 
 }

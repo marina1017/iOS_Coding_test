@@ -76,24 +76,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func getArticles() {
 
-        Alamofire.request("https://deeplink.dev.n8s.jp/quiz/followables.json").responseJSON
-        { response in
+//        Alamofire.request("https://deeplink.dev.n8s.jp/quiz/followables.json").responseJSON
+//        { response in
+//
+//            guard let object = response.result.value else {
+//                return
+//            }
+//            let json = JSON(object)
+//            json["sections"].forEach{(_, data) in
+//                let title = data["title"].string!
+//                print(title) // foo or bar
+////                let groups = data["title"]["groups"].string!
+////                print(groups)
+////                let title2 = data["title"]["groups"]["title"].string!
+////                print(title2)
+//
+//            }
+//
+//        }
 
-            guard let object = response.result.value else {
-                return
+        //APIクライアントの生成
+        let client = FollowablesAPIClient()
+        //リクエストの発行
+        let request = FollowablesAPI.SearchRespositories(keyword: "")
+        //リクエストの送信
+        client.send(request: request, completion: { result in
+            switch result {
+            case let .success(response):
+                for item in response.sections {
+                    print("item.title:",item.title)
+                    
+                }
+            case let .failure(error):
+                //エラー詳細を出力
+                print(error)
             }
-            let json = JSON(object)
-            json["sections"].forEach{(_, data) in
-                let title = data["title"].string!
-                print(title) // foo or bar
-//                let groups = data["title"]["groups"].string!
-//                print(groups)
-//                let title2 = data["title"]["groups"]["title"].string!
-//                print(title2)
-
-            }
-
-        }
+        })
 
     }
 

@@ -18,7 +18,7 @@ struct Contents: JSONDecodable {
         guard let dictionary = json as? [String: Any] else {
             throw JSONDecodeError.invalidFormat(json: json)
         }
-
+        print("dictionary:",dictionary)
         guard let id = dictionary["id"] as? String else {
             throw JSONDecodeError.missingValue(key: "id", actualValue: dictionary["id"])
         }
@@ -31,8 +31,8 @@ struct Contents: JSONDecodable {
             throw JSONDecodeError.missingValue(key: "type", actualValue: dictionary["type"])
         }
 
-        guard let followersCount = dictionary["followersCount"] as? Int else {
-            throw JSONDecodeError.missingValue(key: "followersCount", actualValue: dictionary["followersCount"])
+        guard let followersCount = dictionary["followers_count"] as? Int else {
+            throw JSONDecodeError.missingValue(key: "followers_count", actualValue: dictionary["followers_count"])
         }
 
         self.id = id
