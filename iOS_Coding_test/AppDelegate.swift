@@ -75,43 +75,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func getArticles() {
+        WebApi.getJsonObject(url: "https://deeplink.dev.n8s.jp/quiz/followables.json", complated: { (jsonObject:AnyObject?) -> Void in
+            let json = JSON(jsonObject)
+            json["sections"].forEach{(_, data) in
+                let title = data["title"].string!
+                print(title) // foo or bar
+            }
+            
+//            if let jsonObject: AnyObject = jsonObject{
+//                self.qiitList.removeAll(keepCapacity: false)
+//                for origin in qiitaJsonObject as! [[String:AnyObject]]{
+//                    var dic: [String:AnyObject] = [:]
+//                    dic["title"] = origin["title"]
+//                    dic["url"] = origin["url"]
+//                    self.qiitList.append(dic)
+//                }
+            
+        })
 
-//        Alamofire.request("https://deeplink.dev.n8s.jp/quiz/followables.json").responseJSON
-//        { response in
-//
-//            guard let object = response.result.value else {
-//                return
-//            }
-//            let json = JSON(object)
-//            json["sections"].forEach{(_, data) in
-//                let title = data["title"].string!
-//                print(title) // foo or bar
-////                let groups = data["title"]["groups"].string!
-////                print(groups)
-////                let title2 = data["title"]["groups"]["title"].string!
-////                print(title2)
-//
+//        Alamofire.request("https://deeplink.dev.n8s.jp/quiz/followables.json").responseJSON{ response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                json["sections"].forEach{(_, data) in
+//                    let title = data["title"].string!
+//                    print(title) // foo or bar
+//                }
+//            case .failure(let error):
+//                print(error)
 //            }
 //
 //        }
-
-        //APIクライアントの生成
-        let client = FollowablesAPIClient()
-        //リクエストの発行
-        let request = FollowablesAPI.SearchRespositories(keyword: "")
-        //リクエストの送信
-        client.send(request: request, completion: { result in
-            switch result {
-            case let .success(response):
-                for item in response.sections {
-                    print("item.title:",item.title)
-                    
-                }
-            case let .failure(error):
-                //エラー詳細を出力
-                print(error)
-            }
-        })
+//
+//        //APIクライアントの生成
+//        let client = FollowablesAPIClient()
+//        //リクエストの発行
+//        let request = FollowablesAPI.SearchRespositories(keyword: "")
+//        //リクエストの送信
+//        client.send(request: request, completion: { result in
+//            switch result {
+//            case let .success(response):
+//                for item in response.sections {
+//                    print("item.title:",item.title)
+//
+//                }
+//            case let .failure(error):
+//                //エラー詳細を出力
+//                print(error)
+//            }
+//        })
 
     }
 

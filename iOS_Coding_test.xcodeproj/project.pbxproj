@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C1A9B7E20FF8EA900F2D7A2 /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1A9B7D20FF8EA900F2D7A2 /* WebAPI.swift */; };
 		C0681CE220FC7B5B00619DD0 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0681CE120FC7B5B00619DD0 /* SectionHeaderView.swift */; };
 		C0681CEA20FCC7FC00619DD0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0681CE920FCC7FC00619DD0 /* Alamofire.framework */; };
 		C0681CEC20FCC80600619DD0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0681CEB20FCC80600619DD0 /* SwiftyJSON.framework */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C1A9B7D20FF8EA900F2D7A2 /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
 		C0681CE120FC7B5B00619DD0 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		C0681CE920FCC7FC00619DD0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		C0681CEB20FCC80600619DD0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				C0681D0320FCEF8600619DD0 /* HTTPMethod.swift */,
 				C0681D0520FCF0A100619DD0 /* followablesAPI.swift */,
 				C0681D0720FCF73200619DD0 /* FollowablesAPIClient.swift */,
+				9C1A9B7D20FF8EA900F2D7A2 /* WebAPI.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				C0681CFF20FCEC0C00619DD0 /* GitHubAPIError.swift in Sources */,
 				C0681CEE20FCE13300619DD0 /* Sections.swift in Sources */,
 				C0681CFA20FCE97100619DD0 /* SearchResponse.swift in Sources */,
+				9C1A9B7E20FF8EA900F2D7A2 /* WebAPI.swift in Sources */,
 				C0681D0420FCEF8600619DD0 /* HTTPMethod.swift in Sources */,
 				C0681CE220FC7B5B00619DD0 /* SectionHeaderView.swift in Sources */,
 				C069E51320F769BB0015E998 /* AppDelegate.swift in Sources */,
