@@ -26,7 +26,7 @@ class TopicListViewModel: NSObject, UICollectionViewDataSource  {
         super.init()
     }
     
-    func updateTopicList() {
+    func updateTopicList(complated: @escaping () -> Void) {
         WebApi.getJsonObject(url: "https://deeplink.dev.n8s.jp/quiz/followables.json", complated: { (jsonObject: AnyObject?) -> Void in
             let json = JSON(jsonObject)
             self.titleLists.removeAll(keepingCapacity: false)
@@ -35,9 +35,10 @@ class TopicListViewModel: NSObject, UICollectionViewDataSource  {
                 print(title) // foo or bar
                 var dic: [String: String?] = [:]
                 dic["sectionTitle"] = json["title"].string
-                dic["contentTitle"] = json["groups"]["title"].string
+                dic["contentTitle"] = json["groups"][0]["title"].string
                 self.titleLists.append(dic)
             }
+            complated()
         })
     }
     
@@ -62,7 +63,12 @@ class TopicListViewModel: NSObject, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         
-        let headerReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath as IndexPath) as UICollectionReusableView
+        guard let headerReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath as IndexPath) as? SectionHeaderView else {
+            return UICollectionReusableView()
+        }
+        headerReusableView.sectionTitleLabel.text = self.titleLists[indexPath.section]["sectionTitle"] as? String
+        headerReusableView.titleLabel.text = self.titleLists[indexPath.section]["contentTitle"] as? String
+
         
         return headerReusableView
     }

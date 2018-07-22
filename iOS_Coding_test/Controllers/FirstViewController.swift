@@ -13,7 +13,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
     private let topicListViewModel = TopicListViewModel()
 
-    var collectionView:UICollectionView!
+    var collectionView: UICollectionView!
 
     var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -53,12 +53,16 @@ class FirstViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         //ヘッダーを登録
         self.collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 
-        self.view.addSubview(collectionView)
+        self.view.addSubview(self.collectionView)
 
         // AutoLayout制約を追加
         setupConstraints()
         
-        self.topicListViewModel.updateTopicList()
+        self.topicListViewModel.updateTopicList { () -> Void in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
         
     }
     
