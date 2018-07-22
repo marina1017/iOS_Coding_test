@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 class FirstViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+    
+    private let topicListViewModel = TopicListViewModel()
 
     var collectionView:UICollectionView!
 
@@ -42,9 +44,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegateFlowLayout{
 
         //collectionView
         self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.flowLayout)
-        self.collectionView.dataSource = self
+        self.collectionView.dataSource = topicListViewModel
         self.collectionView.delegate = self
         self.collectionView.backgroundColor = .white
+        
         //セルを登録
         self.collectionView.register(TopicContentView.self, forCellWithReuseIdentifier: "cell")
         //ヘッダーを登録
@@ -54,7 +57,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegateFlowLayout{
 
         // AutoLayout制約を追加
         setupConstraints()
+        
+        self.topicListViewModel.updateTopicList()
+        
     }
+    
 
     private func setupConstraints(){
         self.collectionView.snp.makeConstraints{ make in
@@ -88,34 +95,34 @@ extension FirstViewController: UICollectionViewDelegate {
     }
 }
 
-extension FirstViewController: UICollectionViewDataSource {
-    //個数
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-
-    //セルに何を表示するか
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as UICollectionViewCell
-        cell.isSelected = false
-
-        return cell
-    }
-
-    // ヘッダー追加のため
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
-
-        let headerReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath as IndexPath) as UICollectionReusableView
-
-        return headerReusableView
-    }
-
-    //セクション数の指定
-    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 30
-    }
-
-
-}
+//extension FirstViewController: UICollectionViewDataSource {
+//    //個数
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 3
+//    }
+//
+//    //セルに何を表示するか
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as UICollectionViewCell
+//        cell.isSelected = false
+//
+//        return cell
+//    }
+//
+//    // ヘッダー追加のため
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//
+//
+//        let headerReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath as IndexPath) as UICollectionReusableView
+//
+//        return headerReusableView
+//    }
+//
+//    //セクション数の指定
+//    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 30
+//    }
+//
+//
+//}
