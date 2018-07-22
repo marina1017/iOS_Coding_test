@@ -10,23 +10,14 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    var collectionView:UICollectionView!
+    var tableView: UITableView!
 
-    var flowLayout: UICollectionViewFlowLayout = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = Appearance.size.small
-        flowLayout.minimumLineSpacing = Appearance.size.small
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: Appearance.size.medium, bottom: Appearance.size.default, right: Appearance.size.medium)
-        flowLayout.headerReferenceSize = CGSize(width: 0, height: 50)
-        return flowLayout
-    }()
+    var topicListCell: TopicListCell!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
     }
 
     init() {
@@ -38,27 +29,33 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
         self.view.backgroundColor = .white
         self.navigationItem.title = "フォロー済み"
 
-        // レイアウト作成
-        self.flowLayout.itemSize = CGSize(width: (self.view.frame.size.width - (Appearance.size.small*2))/2 - 10, height: 100)
 
-        //collectionView
-        self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.flowLayout)
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-        self.collectionView.backgroundColor = .white
-        //セルを登録
-        self.collectionView.register(TopicContentView.self, forCellWithReuseIdentifier: "cell")
-        //ヘッダーを登録
-        self.collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        ////tableView
+        self.topicListCell = TopicListCell()
+        self.tableView = UITableView()
+        self.tableView.frame = self.view.frame
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
 
-        self.view.addSubview(collectionView)
+        // セルをテーブルに紐付ける
+        self.tableView.register(TopicListCell.self, forCellReuseIdentifier: NSStringFromClass(TopicListCell.self))
+
+        //テーブルビューを触れないように
+        self.tableView.allowsSelection = false
+
+        // テーブルを表示
+        self.view.addSubview(tableView)
+
+        //collectionViewのデリゲート
+//        self.topicListCell.collectionView.dataSource = self.topicListCell
+//        self.topicListCell.collectionView.delegate = self.topicListCell
 
         // AutoLayout制約を追加
         setupConstraints()
     }
 
     private func setupConstraints(){
-        self.collectionView.snp.makeConstraints{ make in
+        self.tableView.snp.makeConstraints{ make in
             make.edges.equalToSuperview()
         }
     }
@@ -70,7 +67,7 @@ class SecondViewController: UIViewController, UICollectionViewDelegateFlowLayout
 
 }
 
-extension SecondViewController: UICollectionViewDelegate {
+extension TopicListCell: UICollectionViewDelegate {
     //セル選択時に呼び出されるメソッド
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let topicContentView = collectionView.cellForItem(at: indexPath) as! TopicContentView
@@ -89,7 +86,7 @@ extension SecondViewController: UICollectionViewDelegate {
     }
 }
 
-extension SecondViewController: UICollectionViewDataSource {
+extension TopicListCell: UICollectionViewDataSource {
     //個数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -115,8 +112,45 @@ extension SecondViewController: UICollectionViewDataSource {
 
     //セクション数の指定
     internal func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 30
+        return 2
+    }
+}
+
+extension SecondViewController: UITableViewDataSource {
+
+    // セクションごとにデータ要素数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
 
+    // セクション数
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
+    // セルの高さ
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+
+    // セル生成
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TopicListCell.self), for: indexPath)
+
+        return cell
+    }
+}
+
+// セルタップ時の動作定義など
+extension SecondViewController: UITableViewDelegate {
+
+    // セクションヘッダの高さ
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+
+    // セルタップ時の挙動
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    }
 }

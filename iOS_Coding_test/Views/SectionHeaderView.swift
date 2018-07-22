@@ -42,6 +42,7 @@ final class SectionHeaderView: UICollectionReusableView {
         self.addSubview(self.sectionTitleLabel)
         self.addSubview(self.titleLabel)
     }
+    
     override func updateConstraints() {
 
         //これは最後によぶ
