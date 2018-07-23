@@ -66,7 +66,7 @@ class TopicListViewModel: NSObject, UICollectionViewDataSource  {
         guard let headerReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath as IndexPath) as? SectionHeaderView else {
             return UICollectionReusableView()
         }
-        headerReusableView.sectionTitleLabel.text = self.titleLists[indexPath.section]["sectionTitle"] as? String
+        //headerReusableView.sectionTitleLabel.text = self.titleLists[indexPath.section]["sectionTitle"] as? String
         headerReusableView.titleLabel.text = self.titleLists[indexPath.section]["contentTitle"] as? String
 
         
@@ -79,4 +79,32 @@ class TopicListViewModel: NSObject, UICollectionViewDataSource  {
     }
 
 
+}
+
+extension TopicListViewModel: UITableViewDataSource {
+    // セクションごとにデータ要素数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    // セクション数
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    // セルの高さ
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 400
+    }
+
+    // セル生成
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TopicListCell.self), for: indexPath) as? TopicListCell else {
+            return UITableViewCell()
+        }
+
+        //cell.sectionTitleLabel.text = self.titleLists[indexPath.row]["sectionTitle"] as? String
+
+        return cell
+    }
 }

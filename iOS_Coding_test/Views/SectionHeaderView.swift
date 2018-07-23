@@ -6,19 +6,10 @@
 //  Copyright © 2018年 nakagawa. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 import SnapKit
 
 final class SectionHeaderView: UICollectionReusableView {
-    let sectionTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "注目の企業"
-        label.font = Appearance.font.label(18, weight: .bold)
-        label.textColor = Appearance.color.font
-        return label
-    }()
 
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -39,7 +30,6 @@ final class SectionHeaderView: UICollectionReusableView {
     }
 
     private func commonInit() {
-        self.addSubview(self.sectionTitleLabel)
         self.addSubview(self.titleLabel)
     }
     
@@ -51,26 +41,14 @@ final class SectionHeaderView: UICollectionReusableView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layoutSectionTitleLabel()
         self.layoutTitleLabel()
-    }
-
-    private func layoutSectionTitleLabel() {
-        self.sectionTitleLabel.sizeToFit()
-        self.sectionTitleLabel.snp.makeConstraints{ make in
-            make.top.equalToSuperview()
-            make.width.equalToSuperview()
-            make.left.equalToSuperview().offset(Appearance.size.default)
-            make.height.equalTo(Appearance.size.default)
-            make.bottom.equalTo(self.titleLabel.snp.top)
-        }
     }
 
     private func layoutTitleLabel() {
         self.titleLabel.sizeToFit()
         self.titleLabel.snp.makeConstraints{ make in
-            make.top.equalTo(self.sectionTitleLabel.snp.bottom)
-            make.left.equalToSuperview().offset(Appearance.size.default)
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(Appearance.size.default)
         }
